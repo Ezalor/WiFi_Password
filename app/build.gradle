@@ -1,0 +1,26 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "com.czbix.xposed.wifipassword"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 13
+        versionName "1.12"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    provided fileTree(dir: 'deps', include: ['*.jar'])
+    provided 'de.robv.android.xposed:api:81'
+}
